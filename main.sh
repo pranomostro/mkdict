@@ -12,11 +12,11 @@ touch links dict.txt
 echo $1 >links
 IFS='
 '
-for a in `seq 1 1`; do
+for a in `seq 1 100000`; do
 	i=`sed -n "$a p" links`
 	./getl.sh $i | ./merge.sh links
 done
 
-prwrd | awk '{ n[$0]++ } END { for ( i in n ) { print n[i] '' '' i } }' >dict.txt
+prwrd | awk '{ n[$0]++ } END { for ( i in n ) { print n[i] " " i } }' | sort -n >dict.txt
 
 rm links
