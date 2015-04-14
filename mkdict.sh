@@ -8,7 +8,7 @@ IFS='
 '
 for a in `seq 1 $2`; do
 	i=`sed -n "$a p" links`
-	./getl.sh $i $a | ./merge.sh links
+	./getl.sh $i $a $3 | ./merge.sh links
 done
 
 ./prwd.sh | awk '{ n[$0]++ } END { for ( i in n ) { print n[i] " " i } }' | sort -n >dict.txt
