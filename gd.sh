@@ -1,8 +1,7 @@
 #!/bin/bash
 
 #gd.sh
-
-curl $1|
+cat $1|
 tr '\n' ' '|
 sed -e 's/<[^>]\+>/ /g'|
 sed -e 's/  */ /g'|
