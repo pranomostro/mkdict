@@ -3,11 +3,10 @@
 #mkdict.sh
 
 touch links dict.txt
-
 echo $1 >links
 IFS='
 '
-for a in `seq 1 10`; do
+for a in `seq 1 $2`; do
 	i=`sed -n "$a p" links`
 	./getl.sh $i $a | ./merge.sh links
 done
