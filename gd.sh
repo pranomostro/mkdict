@@ -1,7 +1,8 @@
 #!/bin/bash
 
 #gd.sh
-cat $1|
+
+cat "$1"|
 tr '\n' ' '|
 sed -e 's/<[^>]\+>/ /g'|
 sed -e 's/  */ /g'|
