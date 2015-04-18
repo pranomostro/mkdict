@@ -1,1 +1,3 @@
-make gd.sh better
+Find a way so that gd.sh deals not only with newline-separated streams, but also with binary streams.
+This is a problem, in particular for sed.
+Resuse some of the scripts written down here.
