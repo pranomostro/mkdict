@@ -1,3 +1,5 @@
 Find a way so that gd.sh deals not only with newline-separated streams, but also with binary streams.
 This is a problem, in particular for sed.
 Resuse some of the scripts written down here.
+Change the last use of grep in gd.sh to fgrep.
+Change the use of gd.sh to comm.
