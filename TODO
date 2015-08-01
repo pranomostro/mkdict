@@ -4,4 +4,3 @@
 -Change the last use of grep in gd.sh to fgrep.
 -Change the use of gd.sh to comm.
 -Write a man-page (or several).
--Make the different scripts one with several functions.
