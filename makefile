@@ -1,7 +1,7 @@
 clean : logclean dataclean
 
 logclean : mkdict.log
-	echo ''>mkdict.log || exit
+	echo -n ''>mkdict.log
 
 dataclean : data
-	rm data/* || exit
+	rm data/*

@@ -13,7 +13,7 @@ function gd()
 	sed -ue 's/<[^>]\+>/ /g'|
 	tr -s '\t ' '\n'|
 	grep '^[a-zA-ZüöäÜÖÄßẞ][a-züöäß]\+$'|
-	ag -v '([a-zA-ZüöäÜÖÄßẞ])\1{3}'|
+	grep -vE '([a-zA-ZüöäÜÖÄßẞ])\1{3}'|
 	grep -vFf badwords.txt
 }
 
@@ -54,4 +54,3 @@ n=`wc -l dict.txt | awk '{ print $1 }'`
 awk "{ print (\$1/$n)*1000000 \" \" \$2}" dict.txt > dict
 
 mv dict dict.txt
-
