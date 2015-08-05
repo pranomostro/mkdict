@@ -2,10 +2,11 @@
 
 function getl()
 {
-#Replace the pattern in the last grep for configuration
-	curl "$1" | tee data/"$2" | tr '\n' ' ' | grep -o '<a href="[^"]*"' |
-	sed 's/^<a href="//;s/"$//' | grep -E '^(\/)+wiki' |
-	grep -v ':' | sed 's/^/https:\/\/de.wikipedia.org/'
+#Replace the pattern in the last grep and sed for configuration
+	grep -o '<a href="[^"]*"' |
+	sed 's/^<a href="//;s/"$//' |
+	grep -E '^(\/)\/+wiki[^:]+$' |
+	sed 's/^/https:\/\/de.wikipedia.org/'
 }
 
 function gd()
@@ -42,7 +43,7 @@ IFS='
 for a in `seq 1 "$2"`; do
 	i=`sed -n "$a p" links`
 	if [ `wc -l links | awk '{ print $1 }'` -le "$2" ]; then
-		getl "$i" "$a" | merge links
+		curl "$1" | tee data/"$2" | getl "$i" "$a" | merge links
 	else
 		curl $i > data/"$a"
 	fi
