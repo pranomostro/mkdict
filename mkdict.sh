@@ -48,7 +48,8 @@ for a in `seq 1 "$2"`; do
 	fi
 done
 
-cat data/* | gd | awk '{ n[$0]++ } END { for ( i in n ) { print n[i] " " i } }' | sort -n >dict.txt
+cat data/* | gd | awk '{ n[$0]++ } END { for (i in n) { print n[i] " " i } }'
+| sort -n >dict.txt
 
 n=`wc -l dict.txt | awk '{ print $1 }'`
 awk "{ print (\$1/$n)*1000000 \" \" \$2}" dict.txt > dict
