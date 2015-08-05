@@ -1,4 +1,4 @@
--Write a man-page (or several).
--Write the following C-programs: -pol (print only links)
-				 -pot (print only text)
- Use them where they are needed.
+-write these C-programs:
+	pol: print only links. filters out everything else.
+	pot: print only text. filters out html
+	nojs: filters out everything between <script> and </script>
