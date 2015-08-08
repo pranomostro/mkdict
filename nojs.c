@@ -5,49 +5,31 @@
 int main(void)
 {
 	char c;
-	int i, print=1;
+	unsigned int i=0;
 	char* begin="<script>";
 	char* end="</script>";
 
 	char s[16];
 
-	while((c=getchar())!=EOF)
+	do
 	{
-		if(c==*begin&&print)
+		c=getchar();
+
+		if(c==*begin)
 		{
 			s[0]=c;
-			for(i=1; i<=strlen(begin)-1; i++)
-				s[i]=getchar();
 
+			for(i=1; begin[i]==(c=getchar()); i++)
+				s[i]=c;
 			s[i]='\0';
-			if(!strcmp(s, begin))
-			{
-				print=0;
-				continue;
-			}
+			if(i==strlen(begin))
+				while(1);
 			else
-				puts(s);
+				printf(s);
 		}
 
-		if(c==*end&&!print)
-		{
-			s[0]=c;
-			for(i=1; i<=strlen(end)-1; i++)
-				s[i]=getchar();
-
-			s[i]='\0';
-			if(!strcmp(s, end))
-			{
-				print=1;
-				continue;
-			}
-			else
-				puts(s);
-		}
-
-		if(print)
-			putchar(c);
-	}
+		putchar(c);
+	}while(c!=EOF);
 
 	return 0;
 }
