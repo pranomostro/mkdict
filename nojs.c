@@ -5,7 +5,7 @@
 int main(void)
 {
 	char c;
-	unsigned int i=0;
+	unsigned int i=0, fin;
 	char* begin="<script>";
 	char* end="</script>";
 
@@ -22,12 +22,21 @@ int main(void)
 			for(i=1; begin[i]==(c=getchar()); i++)
 				s[i]=c;
 			s[i]='\0';
+
 			if(i==strlen(begin))
-				while(1);
+			{
+				ungetc(c, stdin);
+				fin=0;
+				while(!fin)
+				{
+					for(i=0; end[i]==(c=getchar()); i++);
+					if(i==strlen(end))
+						fin=1;
+				}
+			}
 			else
 				printf(s);
 		}
-
 		putchar(c);
 	}while(c!=EOF);
 
