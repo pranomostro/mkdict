@@ -4,10 +4,10 @@ CC = gcc
 CFLAGS = -Wall -W -Wextra -fexpensive-optimizations\
 -funroll-loops -fno-builtin -s -std=c89 -Os -O3
 
-all: nojs pol pot
+all: skip pol pot
 
-nojs: nojs.c
-	${CC} ${CFLAGS} nojs.c -o nojs
+skip: skip.c
+	${CC} ${CFLAGS} skip.c -o skip
 
 #placeholders
 pol:

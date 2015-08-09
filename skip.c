@@ -2,14 +2,29 @@
 #include <stdio.h>
 #include <string.h>
 
-int main(void)
+/*TODO:
+	-when an EOF occurs anywhere, don't hang
+	 or print the EOF, just die.
+	-also, the code is ugly.
+*/
+
+int main(int argc, char** argv)
 {
 	char c;
 	unsigned int i=0, fin;
-	char* begin="<script>";
-	char* end="</script>";
 
-	char s[16];
+	if(argc!=3)
+	{
+		fprintf(stderr, "error: skip [STR1] [STR2] expected, exiting\n.");
+		exit(1);
+	}
+
+	char* begin=argv[1];
+	char* end=argv[2];
+
+	char* s=(char*) malloc(sizeof(char)*
+		(strlen(begin)>strlen(end)?strlen(begin):strlen(end))
+		);
 
 	do
 	{
@@ -30,8 +45,7 @@ int main(void)
 				fin=0;
 				while(!fin)
 				{
-					for(i=0; end[i]==(c=getchar()); i++)
-						;
+					for(i=0; end[i]==(c=getchar()); i++);
 					if(i>=1)
 						ungetc(c, stdin);
 					if(i==strlen(end))
