@@ -11,7 +11,9 @@ function getl()
 
 function gd()
 {
-	sed -ue 's/<[^>]\+>/ /g'|
+#Edit badwords.txt for words you don't want in you dictionary.
+	./skip '<script>' '</script>'|
+	./skip '<' '>'|
 	tr -s '\t ' '\n'|
 	grep '^[a-zA-ZüöäÜÖÄßẞ][a-züöäß]\+$'|
 	grep -vE '([a-zA-ZüöäÜÖÄßẞ])\1{3}'|

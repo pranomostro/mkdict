@@ -1,4 +1,2 @@
 -write these C-programs:
 	pol: print only links. filters out everything else.
-	pot: print only text. filters out html
-	nojs: filters out everything between <script> and </script>
