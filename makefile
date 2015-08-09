@@ -1,4 +1,4 @@
-#Just the beginning.
+#Makefile for the mkdict script and related utilities.
 
 CC = gcc
 CFLAGS = -Wall -W -Wextra -fexpensive-optimizations\
@@ -9,10 +9,8 @@ all: skip pol pot
 skip: skip.c
 	${CC} ${CFLAGS} skip.c -o skip
 
-#placeholders
+#placeholder
 pol:
-	true
-pot:
 	true
 
 clean: logclean dataclean binclean
@@ -24,4 +22,4 @@ dataclean: data
 	rm data/*
 
 binclean:
-	rm -f nojs pol pot
+	rm -f nojs pol

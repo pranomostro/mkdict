@@ -30,6 +30,8 @@ function merge()
 	done
 }
 
+set -eo pipefail
+
 if [ $# -ne 2 ]; then
 	echo "mkdict LINK COUNT" >/dev/stderr
 	exit 1
