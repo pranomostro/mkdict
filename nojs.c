@@ -13,6 +13,7 @@ int main(void)
 
 	do
 	{
+		start:
 		c=getchar();
 
 		if(c==*begin)
@@ -29,9 +30,12 @@ int main(void)
 				fin=0;
 				while(!fin)
 				{
-					for(i=0; end[i]==(c=getchar()); i++);
+					for(i=0; end[i]==(c=getchar()); i++)
+						;
+					if(i>=1)
+						ungetc(c, stdin);
 					if(i==strlen(end))
-						fin=1;
+						goto start;
 				}
 			}
 			else
