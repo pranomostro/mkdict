@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 
-void waitfor(char* end);
+int waitfor(char* end);
 
 int main(int argc, char** argv)
 {
@@ -22,7 +22,7 @@ int main(int argc, char** argv)
 		(strlen(begin)>strlen(end)?strlen(begin):strlen(end))
 		);
 
-	do
+	while(1)
 	{
 		c=getchar();
 
@@ -36,30 +36,32 @@ int main(int argc, char** argv)
 			ungetc(c, stdin);
 
 			if(i==strlen(begin))
-				waitfor(end);
+				{ if(!waitfor(end)) break; }
 			else
 				printf(buf);
 			continue;
 		}
 		if(c!=EOF)
 			putchar(c);
-	}while(c!=EOF);
+	}
 
 	free(buf);
 
 	return 0;
 }
 
-void waitfor(char* end)
+int waitfor(char* end)
 {
 	unsigned int i;
 	char c;
 	while(1)
 	{
 		for(i=0; end[i]==(c=getchar()); i++);
+		if(c==EOF)
+			return 0;
 		if(i>=1)
 			ungetc(c, stdin);
 		if(i==strlen(end))
-			return;
+			return 1;
 	}
 }
