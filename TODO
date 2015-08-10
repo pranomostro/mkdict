@@ -1,2 +1,3 @@
 -write these C-programs:
 	pol: print only links. filters out everything else.
+-Clean skip.c.
