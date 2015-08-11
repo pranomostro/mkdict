@@ -22,9 +22,45 @@ int main(int argc, char** argv)
 		(strlen(begin)>strlen(end)?strlen(begin):strlen(end))
 		);
 
+	while(1)
+	{
+		if((c=getchar())==begin[0])
+		{
+			for(i=0; begin[i]==c&&i<=strlen(begin); i++)
+			{
+				buf[i]=c;
+				c=getchar();
+
+			}
+			ungetc(c, stdin);
+			if(i==strlen(begin))
+			{
+				if(waitfor(end))
+					continue;
+				else
+					break;
+			}
+			else
+			{
+				buf[i]='\0';
+				printf("%s", buf);
+				continue;
+			}
+
+		}
+
+		if(c==EOF)
+			break;
+		else
+			putchar(c);
+	}
 
 	free(buf);
 
 	return 0;
 }
 
+int waitfor(char* end)
+{
+	return 1;
+}
