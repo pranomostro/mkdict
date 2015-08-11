@@ -1,0 +1,51 @@
+.TH MKDICT 1
+.SH NAME
+\fBmkdict\fR \- generate a dictionary from the web
+
+.SH SYNOPSIS
+\fBmkdict\fR LINK COUNT
+
+.SH DESCRIPTION
+\fBmkdict\fR is a fairly simple shell script that crawls one or more websites
+to generate a dictionary. LINK sets the starting link, COUNT determines the number
+of pages that should be used to generate the dictionary.
+
+.SH FILES
+.I dict.txt
+.RS
+the resulting file, has the structure FREQUENCY (in words per million) WORD
+.RE
+.I badwords.txt
+.RS
+consists words that should not be included in the dictionary, one word per line
+.RE
+.I
+mkdict.log
+.RS
+a log file, can be used by redirecting stderr of mkdict.sh into it
+.RE
+.I
+data
+.RS
+a directory for keeping the cached webpages
+.RE
+.I
+links
+.RS
+a temporary file where the needed links are kept
+.RE
+
+.SH EXAMPLE
+\fBmkdict https://en.wikipedia.org/wiki/Main_Page 10000\fR generates a dictionary
+from 10000 wikipedia pages.
+
+.SH STATUS
+0 on success and 1 when it prints the help message.
+
+.SH BUGS
+The only configuration is provided by editing the source code, which is
+quite unpleasant. The downloaded pages are kept after the program exits,
+not sure if this should be changed. Tell me your opinion about that!
+
+.SH AUTHOR
+Send bugs and ants to a.regenfuss@gmx.de

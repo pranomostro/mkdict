@@ -58,3 +58,5 @@ n=`awk '{ a+=$1 } END { print a }' dict.txt`
 awk "{ print (\$1/$n)*1000000 \" \" \$2}" dict.txt > dict
 
 mv dict dict.txt
+
+exit 0
