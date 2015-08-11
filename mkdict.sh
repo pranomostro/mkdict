@@ -6,17 +6,17 @@ function getl()
 	grep -o '<a href="[^"]*"' |
 	sed 's/^<a href="//;s/"$//' |
 	grep -E '^(\/)+wiki\/[^:]+$' |
-	sed 's/^/https:\/\/de.wikipedia.org/'
+	sed 's/^/https:\/\/en.wikipedia.org/'
 }
 
 function gd()
 {
 #Edit badwords.txt for words you don't want in you dictionary.
-	./skip '<script>' '</script>'|
+	./skip '<script' '</script>'|
 	./skip '<' '>'|
 	tr -s '\t ' '\n'|
-	grep '^[a-zA-ZüöäÜÖÄßẞ][a-züöäß]\+$'|
-	grep -vE '([a-zA-ZüöäÜÖÄßẞ])\1{3}'|
+	grep '^[a-zA-Z][a-z]\+$'|
+	grep -vE '([a-zA-Z])\1{3}'|
 	grep -vFf badwords.txt
 }
 
