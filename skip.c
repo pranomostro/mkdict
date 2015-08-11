@@ -62,5 +62,6 @@ int main(int argc, char** argv)
 
 int waitfor(char* end)
 {
-	return 1;
+	unsigned int i;
+	char c;
 }
