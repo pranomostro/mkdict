@@ -62,6 +62,20 @@ int main(int argc, char** argv)
 
 int waitfor(char* end)
 {
-	unsigned int i;
+	unsigned int i=0;
 	char c;
+
+	while(1)
+	{
+		c=getchar();
+
+		if(c==EOF)
+			return 0;
+		if(end[i]==c)
+			i++;
+		else
+			i=0;
+		if(i==strlen(end))
+			return 1;
+	}
 }
