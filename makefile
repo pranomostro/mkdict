@@ -4,14 +4,10 @@ CC = gcc
 CFLAGS = -Wall -W -Wextra -fexpensive-optimizations\
 -funroll-loops -fno-builtin -s -std=c89 -Os -O3
 
-all: skip pol pot
+all: skip
 
 skip: skip.c
 	${CC} ${CFLAGS} skip.c -o skip
-
-#placeholder
-pol:
-	true
 
 clean: logclean dataclean binclean
 
@@ -22,4 +18,4 @@ dataclean: data
 	rm data/*
 
 binclean:
-	rm -f nojs pol
+	rm -f nojs
