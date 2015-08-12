@@ -18,4 +18,4 @@ dataclean: data
 	rm data/*
 
 binclean:
-	rm -f nojs
+	rm -f skip
