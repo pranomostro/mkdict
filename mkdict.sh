@@ -25,19 +25,19 @@ function merge()
 	for i in `cat`; do
 		a=`grep "$i" links`
 		if [ -z "$a" ]; then
-			echo $i >>$1
+			echo "$i" >>"$1"
 		fi
 	done
 }
 
 if [ $# -ne 2 ]; then
-	echo "mkdict LINK COUNT" >/dev/stderr
+	echo "mkdict LINK COUNT" 1>&2
 	exit 1
 fi
 
 touch links dict.txt
 
-echo $1 >links
+echo "$1" >links
 
 IFS='
 '
@@ -47,7 +47,7 @@ for a in `seq 1 "$2"`; do
 	if [ `wc -l links | awk '{ print $1 }'` -le "$2" ]; then
 		curl "$i" | tee data/"$a" | getl | merge links
 	else
-		curl $i > data/"$a"
+		curl "$i" > data/"$a"
 	fi
 done
 
