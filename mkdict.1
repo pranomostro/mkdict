@@ -7,7 +7,7 @@
 
 .SH DESCRIPTION
 \fBmkdict\fR is a fairly simple shell script that crawls one or more websites
-to generate a dictionary. LINK sets the starting link, COUNT determines the
+to generate a dictionary. LINK sets the starting link and COUNT determines the
 number of pages that should be used to generate the dictionary.
 
 .SH FILES
@@ -46,6 +46,12 @@ dictionary from 10000 wikipedia pages.
 The only configuration is provided by editing the source code, which is
 quite unpleasant. The downloaded pages are kept after the program exits,
 not sure if this should be changed. Tell me your opinion about that!
+.P
+mkdict is written in bash, therefore it is quite vulnerable to quoting
+issues.
+.P
+mkdict needs an installed skip(1). But at the moment no other unix tool
+does what skip does. If you know one, tell me.
 
 .SH AUTHOR
 Send bugs and ants to a.regenfuss@gmx.de

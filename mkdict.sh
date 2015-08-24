@@ -12,8 +12,8 @@ function getl()
 function gd()
 {
 #Edit badwords.txt for words you don't want in you dictionary.
-	./skip '<script' '</script>'|
-	./skip '<' '>'|
+	skip '<script' '</script>'|
+	skip '<' '>'|
 	tr -s '\t ' '\n'|
 	grep '^[a-zA-Z][a-z]\+$'|
 	grep -vE '([a-zA-Z])\1{3}'|
