@@ -6,7 +6,7 @@ function getl()
 	grep -o '<a href="[^"]*"' |
 	sed 's/^<a href="//;s/"$//' |
 	grep -E '^(\/)+wiki\/[^:]+$' |
-	sed 's/^/https:\/\/en.wikipedia.org/'
+	sed 's/^/https:\/\/de.wikipedia.org/'
 }
 
 function gd()
@@ -15,8 +15,8 @@ function gd()
 	skip '<script' '</script>'|
 	skip '<' '>'|
 	tr -s '\t ' '\n'|
-	grep '^[a-zA-Z][a-z]\+$'|
-	grep -vE '([a-zA-Z])\1{3}'|
+	grep '^[a-zA-ZÜÖÄẞüöäß][a-züöäß]\+$'|
+	grep -vE '([a-zA-Züöäß])\1{3}'|
 	grep -vFf badwords.txt
 }
 
