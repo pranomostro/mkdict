@@ -1,6 +1,6 @@
 #Makefile for the mkdict script
 
-clean: logclean dataclean binclean
+clean: logclean dataclean
 
 logclean: mkdict.log
 	echo -n ''>mkdict.log
