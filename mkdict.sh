@@ -11,13 +11,13 @@ function getl()
 
 function gd()
 {
-#Edit badwords.txt for words you don't want in you dictionary.
+#Edit badwords for words you don't want in you dictionary.
 	skip '<script' '</script>'|
 	skip '<' '>'|
 	tr -s '\t ' '\n'|
 	grep '^[a-zA-ZÜÖÄẞüöäß][a-züöäß]\+$'|
-	grep -vE '([a-zA-Züöäß])\1{3}'|
-	grep -vFf badwords.txt
+	grep -vE '([a-zA-ZüöäßÜÖÄẞ])\1{3}'|
+	grep -vFf badwords
 }
 
 function merge()
@@ -51,12 +51,11 @@ for a in `seq 1 "$2"`; do
 	fi
 done
 
-cat data/* | gd | awk '{ n[$0]++ } END { for (i in n) { print n[i] " " i } }' |
-sort -n >dict.txt
+cat data/* | gd | sort | uniq -c | sort -n >dict.txt
 
 n=`awk '{ a+=$1 } END { print a }' dict.txt`
 awk "{ print (\$1/$n)*1000000 \" \" \$2}" dict.txt > dict
 
-mv dict dict.txt
+rm dict.txt
 
 exit 0
