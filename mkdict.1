@@ -1,12 +1,12 @@
 .TH MKDICT 1
 .SH NAME
-\fBmkdict\fR \- generate a dictionary from the web
+mkdict \- generate a dictionary from the web
 
 .SH SYNOPSIS
-\fBmkdict\fR LINK COUNT
+mkdict LINK COUNT
 
 .SH DESCRIPTION
-\fBmkdict\fR is a fairly simple shell script that crawls one or more websites
+mkdict is a fairly simple shell script that crawls one or more websites
 to generate a dictionary. LINK sets the starting link and COUNT determines the
 number of pages that should be used to generate the dictionary.
 
@@ -36,8 +36,9 @@ a temporary file where the needed links are kept
 .RE
 
 .SH EXAMPLE
-\fBmkdict https://en.wikipedia.org/wiki/Main_Page 10000\fR generates a
-dictionary from 10000 wikipedia pages.
+.TP
+.B mkdict https://en.wikipedia.org/wiki/Main_Page 10000
+generates a dictionary from 10000 wikipedia pages.
 
 .SH STATUS
 0 on success and 1 when it prints the help message.
@@ -46,10 +47,10 @@ dictionary from 10000 wikipedia pages.
 The only configuration is provided by editing the source code, which is
 quite unpleasant. The downloaded pages are kept after the program exits,
 not sure if this should be changed. Tell me your opinion about that!
-.P
-mkdict is written in bash, therefore it is quite vulnerable to quoting
+.TP
+mkdict is written in sh, therefore it is quite vulnerable to quoting
 issues.
-.P
+.TP
 mkdict needs an installed skip(1). But at the moment no other unix tool
 does what skip does. If you know one, tell me.
 
