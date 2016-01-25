@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 function getl()
 {
@@ -57,5 +57,3 @@ n=`awk '{ a+=$1 } END { print a }' dict.txt`
 awk "{ print (\$1/$n)*1000000 \" \" \$2}" dict.txt > dict
 
 rm dict.txt
-
-exit 0
