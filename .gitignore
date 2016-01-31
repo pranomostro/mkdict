@@ -1,0 +1,8 @@
+#ignore temporary files and downloaded websites.
+
+data/*
+
+links
+dict
+badwords
+mkdict.log
