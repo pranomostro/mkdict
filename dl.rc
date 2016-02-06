@@ -1,0 +1,16 @@
+#!/usr/bin/env rc
+
+fn getl{
+	while(test `{ls data | wc -l} -le $1){
+		curl `{read} |
+		tee -a cache |
+		grep -o '<a href="[^"]*"' |
+		sed 's/^<a href="//;s/"$//' |
+		grep -E '^(\/)+wiki\/[^:]+$' |
+		sed 's/^/https:\/\/de.wikipedia.org/'
+	}
+}
+
+echo $1 >links
+
+tail -f links | getl $2 | stdbuf -i0 -oL fnuu >>links
