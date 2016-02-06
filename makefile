@@ -1,10 +1,5 @@
-#Makefile for the mkdict script
+#make the directory clean
 
-clean: logclean dataclean
-
-logclean: mkdict.log
-	echo -n ''>mkdict.log
-
-dataclean: data
+clean:
 	rm data/*
-
+	echo ''>links
