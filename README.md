@@ -15,8 +15,8 @@ So, if you need a dictionary, just execute
 
 and wait some time. The resulting dictionary is saved in
 the file dict, with the form
-FREQUENCY (in wpm (words per million)) WORD.
-Then you should run make to clean the logfile and the cached
+FREQUENCY (in words per million) WORD.
+Then you should run make to clean the linkfile and the cached
 webpages.
 
 Configuration
@@ -32,23 +32,26 @@ you might not want in your dictionary.
 Requirements
 ------------
 
-If you want mkdict working, you need
+The most important thing you need for
+mkdict is the rc shell , available with plan9port,
+[9base](https://tools.suckless.org/9base) or
+[standalone](https://www.github.com/rakitzis/rc).
+You also need two other tools,
 [skip](https://www.github.com/scharlatan/skip)
-installed. mkdict needs it for removing javascript
-code and html tags.
+and [fnuu](https://www.github.com/scharlatan/uu)
+installed.
 Also, a standard unix environment is needed.
 
 Installation
 ------------
 
 mkdict is not really installed in that sense, you just
-open the repo, run mkdict, save the dictionary, and
-delete it again.
+clone the repo, run mkdict, save the dictionary, and
+delete mkdict again.
 
 Quirks and Problems
 -------------------
 
-mkdict gets quite slow if you let it download >100000 webpages.
 It also fills your harddrive, so you might consider running
 `make clean` after generating the dictionary.
 

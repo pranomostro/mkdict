@@ -20,11 +20,6 @@ the resulting file, has the structure FREQUENCY (in words per million) WORD
 consists words that should not be included in the dictionary, one word per line
 .RE
 .I
-mkdict.log
-.RS
-a log file, can be used by redirecting stderr of mkdict.sh into it
-.RE
-.I
 data
 .RS
 a directory for keeping the cached webpages
@@ -48,10 +43,7 @@ The only configuration is provided by editing the source code, which is
 quite unpleasant. The downloaded pages are kept after the program exits,
 not sure if this should be changed. Tell me your opinion about that!
 .P
-mkdict is written in sh, therefore it is quite vulnerable to quoting
-issues.
-.P
-mkdict needs an installed skip(1). But at the moment no other unix tool
+mkdict needs an installed skip(1) and fnuu(1). But at the moment no other unix tool
 does what skip does. If you know one, tell me.
 
 .SH AUTHOR
