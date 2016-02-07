@@ -16,21 +16,11 @@ fn getl{
 	exit
 }
 
-fn gd{
-	skip '<script' '</script>' |
-	skip '<' '>' |
-	tr -s '\t ' '\n' |
-	grep '^[a-zA-Z][a-z]\+$' |
-	grep -vE '(.)\1{3}' |
-	grep -vFf badwords
-}
-
 if(test $#* -ne 2){
 	echo "mkdict LINK COUNT" >[2=1]
 	exit 1
 }
 
-touch words
 echo $1 >links
 
 ifs='
@@ -38,10 +28,17 @@ ifs='
 
 tail -f links | getl $2 | stdbuf -i0 -oL awk '{ if(a[$0]==0) { print($0); a[$0]=1; } }' >>links
 
-cat data/* | gd | sort | uniq -c | sort -n >words
+cat data/* |
+skip '<script' '</script>' |
+skip '<' '>' |
+tr -s '\t ' '\n' |
+grep '^[a-zA-Z][a-z]\+$' |
+grep -vE '(.)\1{3}' |
+grep -vFf badwords >words
 
-n=`{awk '{ a+=$1 } END { print a }' words}
-awk '{ print ($1/'$n')*1000000 " " $2}' words > dict
+sort words | uniq -c | sort -n >wwc
 
-echo ''>words
+n=`{awk '{ a+=$1 } END { print a }' wwc}
+awk '{ print ($1/'$n')*1000000 " " $2}' wwc > dict
 
+echo ''>words; echo ''>wwc
