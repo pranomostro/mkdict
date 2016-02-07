@@ -39,5 +39,3 @@ sort words | uniq -c | sort -n >wwc
 
 n=`{awk '{ a+=$1 } END { print a }' wwc}
 awk '{ print ($1/'$n')*1000000 " " $2}' wwc > dict
-
-echo ''>words; echo ''>wwc
