@@ -36,10 +36,8 @@ The most important thing you need for
 mkdict is the rc shell , available with plan9port,
 [9base](http://tools.suckless.org/9base) or
 [standalone](https://www.github.com/rakitzis/rc).
-You also need two other tools,
-[skip](https://www.github.com/scharlatan/skip)
-and [fnuu](https://www.github.com/scharlatan/uu)
-installed.
+You also need another tool,
+[skip](https://www.github.com/scharlatan/skip).
 Also, a standard unix environment is needed.
 
 Installation

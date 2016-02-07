@@ -3,7 +3,7 @@
 fn getl{
 	while(test `{ls data | wc -l} -lt $1)
 	{
-		if(test `{wc -l <links} -le $1)
+		if(test `{wc -l <links} -lt $1)
 			curl -s `{read} |
 			tee `{mktemp 'data/XXXXXXX'} |
 			grep -o '<a href="[^"]*"' |
@@ -13,6 +13,7 @@ fn getl{
 		if not
 			curl -s `{read} >`{mktemp 'data/XXXXXXX'}
 	}
+	exit 1
 }
 
 fn gd{
@@ -29,17 +30,18 @@ if(test $#* -ne 2){
 	exit 1
 }
 
-touch dict.txt
+touch words
 echo $1 >links
 
 ifs='
 '
 
-tail -f links | getl $2 | stdbuf -i0 -oL fnuu >>links
+tail -f links | getl $2 | stdbuf -i0 -oL awk '{ if(a[$0]==0) { print($0); a[$0]=1; } }' >>links
 
-cat data/* | gd | sort | uniq -c | sort -n >dict.txt
+cat data/* | gd | sort | uniq -c | sort -n >words
 
-n=`{awk '{ a+=$1 } END { print a }' dict.txt}
-awk '{ print ($1/'$n')*1000000 " " $2}' dict.txt > dict
+n=`{awk '{ a+=$1 } END { print a }' words}
+awk '{ print ($1/'$n')*1000000 " " $2}' words > dict
 
-rm dict.txt
+echo ''>words
+
