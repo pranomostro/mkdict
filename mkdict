@@ -13,7 +13,7 @@ fn getl{
 		if not
 			curl -s `{read} >`{mktemp 'data/XXXXXXX'}
 	}
-	exit 1
+	exit
 }
 
 fn gd{
@@ -21,7 +21,7 @@ fn gd{
 	skip '<' '>' |
 	tr -s '\t ' '\n' |
 	grep '^[a-zA-Z][a-z]\+$' |
-	grep -vE '([a-zA-Z])\1{3}' |
+	grep -vE '(.)\1{3}' |
 	grep -vFf badwords
 }
 
