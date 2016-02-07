@@ -26,9 +26,6 @@ At the moment, this is configured for wikipedia.
 You can change the configuration by editing some
 regular expressions in the source code.
 
-There is also a file called badwords for words
-you might not want in your dictionary.
-
 Requirements
 ------------
 
