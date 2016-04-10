@@ -30,7 +30,7 @@ Requirements
 ------------
 
 The most important thing you need for
-mkdict is the rc shell , available with plan9port,
+mkdict is the rc shell, available with plan9port,
 [9base](http://tools.suckless.org/9base) or
 [standalone](https://www.github.com/rakitzis/rc).
 You also need another tool,
