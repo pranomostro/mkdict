@@ -5,3 +5,5 @@ clean:
 	echo ''>links
 	echo ''>words
 	echo ''>wwc
+
+.PHONY: clean
