@@ -42,7 +42,7 @@ Installation
 
 mkdict is not really installed in that sense, you just
 clone the repo, run mkdict, save the dictionary, and
-delete mkdict again.
+delete mkdict.
 
 Quirks and Problems
 -------------------
