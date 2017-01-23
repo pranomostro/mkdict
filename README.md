@@ -56,4 +56,4 @@ just look at the manpage.
 License
 -------
 
-See ./COPYING.
+See ./LICENSE.
