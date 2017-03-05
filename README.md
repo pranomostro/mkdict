@@ -1,13 +1,11 @@
 Generate a dictionary from the web
 ==================================
 
-From Wikipedia, to be exact.
-mkdict is a script based on a challenge
-by my father who said one could not write
-anything complex with shell scripts, like
-for example a program analyzing webpages and
-generating a dictionary from them. I disagreed
-and wrote a first prototype for this in \~15 minutes.
+From Wikipedia, to be exact.  mkdict is a script based on a challenge
+by my father who said one could not write anything complex with shell
+scripts, like for example a program analyzing webpages and generating a
+dictionary from them. I disagreed and wrote a first prototype for this
+in \~15 minutes.
 
 So, if you need a dictionary, just execute
 
