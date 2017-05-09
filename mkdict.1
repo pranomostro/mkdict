@@ -13,17 +13,18 @@ number of pages that should be used to generate the dictionary.
 .SH FILES
 .I dict
 .RS
-the resulting file, has the structure FREQUENCY (in words per million) WORD
+the resulting dictionary. Each line contains two fields, the first being the frequency
+of the word in words per million, the second one being the word itself.
 .RE
 .I
 data
 .RS
-a directory for keeping the cached webpages
+a directory for keeping the cached webpages.
 .RE
 .I
 links
 .RS
-a temporary file where the needed links are kept
+a temporary file where the downloaded links are saved.
 .RE
 
 .SH EXAMPLES
@@ -41,6 +42,9 @@ generates a dictionary from 10000 wikipedia pages.
 .SH BUGS
 The only configuration is provided by editing the source code, which is
 quite unpleasant.
+.P
+Caching of the downloaded webpages fills the harddrive. Run make clean to
+delay the problem.
 
 .SH AUTHOR
 Send bugs and ants to pranomestro@gmail.com
