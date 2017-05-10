@@ -17,7 +17,7 @@ fn getl{
 }
 
 if(test $#* -ne 2){
-	echo 'mkdict LINK COUNT' >[1=2]
+	echo 'mkdict link count' >[1=2]
 	exit 1
 }
 
