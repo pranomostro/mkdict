@@ -1,50 +1,49 @@
-.TH MKDICT 1
-.SH NAME
-mkdict \- generate a dictionary from the web
+.Dd May 11, 2017
+.Dt MKDICT 1
+.Os
 
-.SH SYNOPSIS
-mkdict link count
+.Sh NAME
+.Nm mkdict
+.Nd generate a dictionary from the web
 
-.SH DESCRIPTION
-mkdict is a fairly simple shell script that crawls one or more websites
-to generate a dictionary. link sets the starting link and count determines the
-number of pages that should be used to generate the dictionary.
+.Sh SYNOPSIS
+.Nm
+.Ar link
+.Ar count
 
-.SH FILES
-.I dict
-.RS
-the resulting dictionary. Each line contains two fields, the first being the frequency
-of the word in words per million, the second one being the word itself.
-.RE
-.I
-data
-.RS
-a directory for keeping the cached webpages.
-.RE
-.I
-links
-.RS
-a temporary file where the downloaded links are saved.
-.RE
+.Sh DESCRIPTION
+.Nm
+is a shell script that crawls one or more websites to generate a dictionary.
+.Ar link
+sets the starting link and
+.Ar count
+determines the number of pages that should be used to generate the dictionary.
 
-.SH EXAMPLES
-.PP
-.fi
-.RS
-$ mkdict https://en.wikipedia.org/wiki/Main_Page 10000
-.RE
-.fi
-generates a dictionary from 10000 wikipedia pages.
+.Sh FILES
+.Bl -tag -width Ds
+.It Pa dict
+The resulting dictionary. Each line contains two fields, the first being
+the frequency of the word in words per million, the second one being
+the word itself.
+.It Pa links
+A temporary file for saving the links.
+.It Pa data
+A cache directory for the keeping the webpages.
+.El
 
-.SH STATUS
-0 on success and 1 when it prints the usage.
+.Sh EXAMPLES
+Generate a dictionary from 10000 wikipedia pages:
+.Pp
+.Dl $ mkdict https://en.wikipedia.org/wiki/Main_Page 10000
 
-.SH BUGS
-The only configuration is provided by editing the source code, which is
-quite unpleasant.
-.P
-Caching of the downloaded webpages fills the harddrive. Run make clean to
-delay the problem.
+.Sh EXIT STATUS
+.Ex -std
 
-.SH AUTHOR
-Send bugs and ants to pranomestro@gmail.com
+.Sh BUGS
+.Nm
+is configured by editing its source code.
+.Pp
+Caching of the webpages fills the harddrive.
+
+.Sh AUTHORS
+.An pranomostro Aq Mt pranomestro@gmail.com

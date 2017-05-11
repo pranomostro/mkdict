@@ -1,5 +1,5 @@
 clean:
-	rm data/*
+	rm -f data/*
 	echo ''>links
 	echo ''>words
 	echo ''>wwc
