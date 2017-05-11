@@ -14,8 +14,11 @@ each line containing the frequency of the word in words per million and the word
 Requirements
 ------------
 
-* the rc shell, available with plan9port, [9base](http://tools.suckless.org/9base) or [standalone](https://www.github.com/rakitzis/rc).
-* [skip](https://www.github.com/pranomostro/skip).
+* 	the rc shell, available with
+	[plan9port](https://swtch.com/plan9port/),
+	[9base](http://tools.suckless.org/9base)
+	or [standalone](https://www.github.com/rakitzis/rc).
+* 	[skip](https://www.github.com/pranomostro/skip).
 
 License
 -------
