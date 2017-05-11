@@ -19,6 +19,7 @@ Requirements
 	[9base](http://tools.suckless.org/9base)
 	or [standalone](https://www.github.com/rakitzis/rc).
 * 	[skip](https://www.github.com/pranomostro/skip).
+*	utilities not defined by POSIX: curl, stdbuf
 
 License
 -------
