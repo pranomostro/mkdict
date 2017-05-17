@@ -24,4 +24,4 @@ Requirements
 License
 -------
 
-See ./LICENSE.
+See [LICENSE](./LICENSE).
